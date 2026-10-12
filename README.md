@@ -1,59 +1,67 @@
-# Gerador de Relatórios Financeiros
+# Financial Report Generator
 
-Este é um projeto simples em Python para gerar relatórios financeiros a partir de um arquivo CSV contendo transações de receitas e despesas. Ele calcula o total de receitas, despesas e saldo, além de gerar um gráfico de barras comparando receitas e despesas.
+![CI](https://github.com/Lukegbb/financial-report-generator/actions/workflows/ci.yml/badge.svg)
 
-## Funcionalidades
+A small command-line tool that reads a CSV of income and expenses and produces:
 
-- Leitura de transações financeiras a partir de um arquivo CSV.
-- Cálculo do total de receitas e despesas.
-- Geração de um relatório de texto com o saldo final.
-- Exibição de um gráfico de barras com comparações de receitas e despesas.
+- a text report with total income, expenses, balance and **savings rate**
+- a **month-by-month** breakdown
+- **spending by category**
+- two charts saved as PNG (income vs expenses per month, and a category pie chart)
 
-##  Estrutura do Projeto
-transacoes.csv: Arquivo CSV contendo as transações financeiras.
-relatorio_financeiro.py: Script Python que gera o relatório e o gráfico.
-relatorio_financeiro.txt: Relatório de texto gerado após a execução do script.
+The CSV is validated first, so a missing column, an unknown transaction type or a bad date gives a clear error instead of a stack trace.
 
-## O arquivo CSV deve conter as seguintes colunas:
-
-Data: Data da transação no formato YYYY-MM-DD.
-Descrição: Descrição breve da transação.
-Tipo: "Receita" ou "Despesa".
-Valor: Valor da transação. Receitas são valores positivos e despesas são valores negativos.
-
-## Pré-requisitos
-
-Antes de executar o projeto, você precisará instalar as seguintes dependências:
-
-
-pip install pandas matplotlib
-
-## Financial Report Generator
-
-This is a simple Python project to generate financial reports from a CSV file containing income and expense transactions. It calculates the total income, expenses, and balance, and generates a bar chart comparing income and expenses.
-
-## Features
-
-- Read financial transactions from a CSV file.
-- Calculate total income and expenses.
-- Generate a text report with the final balance.
-- Display a bar chart comparing income and expenses.
-  
-## Project Structure
-transactions.csv: CSV file containing financial transactions.
-financial_report.py: Python script that generates the report and chart.
-financial_report.txt: Text report generated after running the script.
-
-## The CSV file should contain the following columns:
-
-Date: Date of the transaction in YYYY-MM-DD format.
-Description: Brief description of the transaction.
-Type: "Income" or "Expense".
-Amount: Transaction amount. Incomes are positive values and expenses are negative values.
-
-## Prerequisites
-
-Before running the project, you will need to install the following dependencies:
+## Usage
 
 ```bash
-pip install pandas matplotlib
+pip install -r requirements.txt
+python finance_report.py transactions.csv --output reports/
+```
+
+Options:
+
+| Option | Description |
+|---|---|
+| `csv` | Path to the CSV file (default: `transactions.csv`) |
+| `-o, --output` | Folder for `report.txt` and the charts (default: `reports/`) |
+| `--no-charts` | Only generate the text report |
+
+### Example output
+
+```
+FINANCIAL REPORT
+================
+Total income:   €36,200.00
+Total expenses: €10,890.00
+Balance:        €25,310.00
+Savings rate:   69.9%
+
+By month
+--------
+2024-01  income €  8,500.00   expenses €  2,000.00   balance €  6,500.00
+...
+```
+
+## CSV format
+
+| Column | Example | Notes |
+|---|---|---|
+| `date` | `2024-01-05` | YYYY-MM-DD |
+| `description` | `Rent` | free text |
+| `category` | `Housing` | used for the category breakdown |
+| `type` | `income` / `expense` | |
+| `amount` | `1200.00` | positive or negative, both work |
+
+A sample file with four months of data is included (`transactions.csv`).
+
+## Tests
+
+```bash
+python -m unittest discover -s tests -t . -v
+```
+
+The tests cover the totals, the monthly and category breakdowns, CSV validation and the command-line run. They run on every push with GitHub Actions.
+
+## Tech
+
+Python 3, pandas, matplotlib, argparse, unittest.

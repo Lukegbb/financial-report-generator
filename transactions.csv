@@ -1,0 +1,40 @@
+date,description,category,type,amount
+2024-01-05,Salary,Salary,income,5000.00
+2024-01-10,Rent,Housing,expense,1200.00
+2024-01-12,Groceries,Food,expense,300.00
+2024-01-15,Freelance work,Freelance,income,1500.00
+2024-01-20,Internet,Utilities,expense,150.00
+2024-01-25,Transport,Transport,expense,100.00
+2024-01-28,Investment return,Investments,income,2000.00
+2024-01-30,Restaurant,Food,expense,250.00
+2024-02-01,Salary,Salary,income,5000.00
+2024-02-05,Rent,Housing,expense,1200.00
+2024-02-07,Electricity,Utilities,expense,180.00
+2024-02-10,Groceries,Food,expense,320.00
+2024-02-12,Gym,Leisure,expense,90.00
+2024-02-15,Freelance work,Freelance,income,1200.00
+2024-02-18,Travel,Leisure,expense,600.00
+2024-02-20,Internet,Utilities,expense,150.00
+2024-02-25,Transport,Transport,expense,110.00
+2024-02-28,Investment return,Investments,income,2200.00
+2024-03-01,Salary,Salary,income,5000.00
+2024-03-03,Restaurant,Food,expense,270.00
+2024-03-05,Rent,Housing,expense,1200.00
+2024-03-07,Electricity,Utilities,expense,185.00
+2024-03-10,Groceries,Food,expense,350.00
+2024-03-12,Gym,Leisure,expense,95.00
+2024-03-15,Freelance work,Freelance,income,1800.00
+2024-03-18,Travel,Leisure,expense,800.00
+2024-03-20,Internet,Utilities,expense,150.00
+2024-03-25,Transport,Transport,expense,120.00
+2024-03-28,Investment return,Investments,income,2500.00
+2024-04-01,Salary,Salary,income,5000.00
+2024-04-05,Rent,Housing,expense,1200.00
+2024-04-07,Electricity,Utilities,expense,190.00
+2024-04-10,Groceries,Food,expense,400.00
+2024-04-12,Gym,Leisure,expense,100.00
+2024-04-15,Freelance work,Freelance,income,2000.00
+2024-04-18,Travel,Leisure,expense,900.00
+2024-04-20,Internet,Utilities,expense,150.00
+2024-04-25,Transport,Transport,expense,130.00
+2024-04-28,Investment return,Investments,income,3000.00
